@@ -1,11 +1,11 @@
 // IIFE - Immediately Invoked Function Expression
-(function(){
+(function () {
+    var myVariable = 5;
     function Start() {
-        console.log(`%c Game Started`, "color:blue; font-size: 20px;");
+        console.log("%c Game Somewhat 2 Started", "color:blue; font-size: 20px;");
     }
     function Update() {
-
     }
-
     window.addEventListener("load", Start);
 })();
+//# sourceMappingURL=game.js.map
