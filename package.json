@@ -1,0 +1,15 @@
+{
+  "name": "comp397-f2018-lesson1",
+  "version": "1.0.0",
+  "description": "COMP397-F2018-Lesson1",
+  "main": "index.js",
+  "repository": "https://github.com/smonroy/COMP397-F2018-Lesson1.git",
+  "author": "Sergio Monroy Escalante <sergio.monroy.escalante@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
+  }
+}
