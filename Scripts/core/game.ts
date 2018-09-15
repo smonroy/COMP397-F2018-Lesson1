@@ -3,8 +3,8 @@
     // game variables
     let canvas:HTMLCanvasElement;
     let stage:createjs.Stage;
-    let helloLabel:obejcts.Label;
-    let clickMeButton:createjs.Bitmap;
+    let helloLabel:objects.Label;
+    let clickMeButton:objects.Button;
 
     function Start():void {
         console.log(`%c Game Somewhat 3 Started`, "color:blue; font-size: 20px;");
@@ -23,16 +23,12 @@
     }
 
     function Main():void {
-        helloLabel = new obejcts.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
+        helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
 
-        clickMeButton = new createjs.Bitmap("/Assets/Images/clickMeButton.jpeg");
+        clickMeButton = new objects.Button("/Assets/Images/clickMeButton.jpeg", 320, 360, true);
         clickMeButton.scaleX = 0.2;
         clickMeButton.scaleY = 0.2;
-        clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
-        clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
-        clickMeButton.x = 320;
-        clickMeButton.y = 360;
         stage.addChild(clickMeButton);
 
         clickMeButton.on("click", function() {

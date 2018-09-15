@@ -20,15 +20,11 @@
         stage.update();
     }
     function Main() {
-        helloLabel = new obejcts.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
+        helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
-        clickMeButton = new createjs.Bitmap("/Assets/Images/clickMeButton.jpeg");
+        clickMeButton = new objects.Button("/Assets/Images/clickMeButton.jpeg", 320, 360, true);
         clickMeButton.scaleX = 0.2;
         clickMeButton.scaleY = 0.2;
-        clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
-        clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
-        clickMeButton.x = 320;
-        clickMeButton.y = 360;
         stage.addChild(clickMeButton);
         clickMeButton.on("click", function () {
             helloLabel.text = "Clicked!";

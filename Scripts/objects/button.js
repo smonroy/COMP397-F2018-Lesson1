@@ -1,27 +1,19 @@
 var objects;
 (function (objects) {
-    class Label extends createjs.Text {
-        // constructor
-        /**
-         *
-         * @param labelString
-         * @param fontSize
-         * @param fontFamily
-         * @param fontColor
-         * @param x
-         * @param y
-         * @param isCenter
-         */
-        constructor(labelString, fontSize, fontFamily, fontColor, x = 0, y = 0, isCenter = false) {
-            super(labelString, fontSize + " " + fontFamily, fontColor);
-            this.Width = this.getMeasuredWidth();
-            this.Height = this.getMeasuredHeight();
+    class Button extends createjs.Bitmap {
+        // contructor
+        constructor(imageString, x = 0, y = 0, isCenter = false) {
+            super(imageString);
+            this.Width = this.getBounds().width;
+            this.Height = this.getBounds().height;
             if (isCenter) {
                 this.regX = this.HalfWidth;
                 this.regY = this.HalfHeight;
             }
             this.x = x;
             this.y = y;
+            this.on("mouseover", this._over);
+            this.on("mouseout", this._out);
         }
         // public properties
         get Width() {
@@ -50,7 +42,14 @@ var objects;
         set HalfHeight(newValue) {
             this._halfHeight = newValue;
         }
+        // private methods
+        _over(event) {
+            this.alpha = 0.7;
+        }
+        _out(event) {
+            this.alpha = 1.0;
+        }
     }
-    objects.Label = Label;
+    objects.Button = Button;
 })(objects || (objects = {}));
-//# sourceMappingURL=label.js.map
+//# sourceMappingURL=button.js.map
