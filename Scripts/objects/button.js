@@ -3,7 +3,7 @@ var objects;
     class Button extends createjs.Bitmap {
         // contructor
         constructor(imageString, x = 0, y = 0, isCenter = false) {
-            super(imageString);
+            super(managers.Game.assetMnager.getResult(imageString));
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
             if (isCenter) {

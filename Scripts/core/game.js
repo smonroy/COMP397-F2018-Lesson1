@@ -5,6 +5,17 @@
     let stage;
     let helloLabel;
     let clickMeButton;
+    let assetManager;
+    let assetManifest = [
+        { id: "clickMeButton", src: "/Assets/Images/clickMeButton.jpeg" }
+    ];
+    function Init() {
+        assetManager = new createjs.LoadQueue();
+        managers.Game.assetMnager = assetManager;
+        assetManager.installPlugin(createjs.Sound);
+        assetManager.loadManifest(assetManifest);
+        assetManager.on("complete", Start);
+    }
     function Start() {
         console.log(`%c Game Somewhat 3 Started`, "color:blue; font-size: 20px;");
         canvas = document.getElementsByTagName("canvas")[0];
@@ -16,13 +27,13 @@
     }
     // this is the game loop
     function Update() {
-        helloLabel.rotation -= 5;
+        //        helloLabel.rotation -= 5;
         stage.update();
     }
     function Main() {
         helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
-        clickMeButton = new objects.Button("/Assets/Images/clickMeButton.jpeg", 320, 360, true);
+        clickMeButton = new objects.Button("clickMeButton", 320, 360, true);
         clickMeButton.scaleX = 0.2;
         clickMeButton.scaleY = 0.2;
         stage.addChild(clickMeButton);
@@ -36,6 +47,6 @@
             clickMeButton.alpha = 1.0;
         });
     }
-    window.addEventListener("load", Start);
+    window.addEventListener("load", Init);
 })();
 //# sourceMappingURL=game.js.map

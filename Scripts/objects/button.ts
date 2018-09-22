@@ -43,7 +43,7 @@ module objects {
 
         // contructor
         constructor(imageString:string, x:number = 0, y:number = 0, isCenter:boolean = false){
-            super(imageString);
+            super(managers.Game.assetMnager.getResult(imageString));
 
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
