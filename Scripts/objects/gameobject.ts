@@ -1,5 +1,5 @@
 module objects {
-    export class Button extends createjs.Bitmap {
+    export abstract class GameObject extends createjs.Bitmap {
         // private instance variables
         private _with:number;
         private _height:number;
@@ -41,34 +41,35 @@ module objects {
             this._halfHeight = newValue;
         }
 
-        // constructor
-        constructor(imageString:string, x:number = 0, y:number = 0, isCenter:boolean = false){
-            super(managers.Game.assetMnager.getResult(imageString));
+        // constructors
+        constructor(imageString:string) {
+           super(managers.Game.assetMnager.getResult(imageString));
+           this._initialize();
+        }
 
+       // private methods
+       private _initialize():void {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
+       }
 
-            if(isCenter) {
-                this.regX = this.HalfWidth;
-                this.regY = this.HalfHeight;
-            }
+       // public methods
+       public Reset():void {
 
-            this.x = x;
-            this.y = y;
+       }
 
-            this.on("mouseover", this._over);
-            this.on("mouseout", this._out);
-        }
+       public Start():void {
+     
+       }
 
-        // private methods
-        private _over(event:createjs.MouseEvent):void {
-            this.alpha = 0.7;
-        }
+       public Update():void {
+          
+       }
 
-        private _out(event:createjs.MouseEvent):void {
-            this.alpha = 1.0;
-        }
-
-        // public methods
+       public Destroy():void {
+       }
+    
+          
     }
+ 
 }

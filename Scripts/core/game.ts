@@ -3,12 +3,18 @@
     // game variables
     let canvas:HTMLCanvasElement;
     let stage:createjs.Stage;
-    let helloLabel:objects.Label;
-    let clickMeButton:objects.Button;
     let assetManager:createjs.LoadQueue;
     let assetManifest = [
-        {id:"clickMeButton", src:"/Assets/Images/clickMeButton.jpeg"}
+        {id:"plane", src:"/Assets/Images/plane.png"},
+        {id:"cloud", src:"/Assets/Images/cloud.png"},
+        {id:"island", src:"/Assets/Images/island.png"},
+        {id:"ocean", src:"/Assets/Images/ocean.gif"},
+        {id:"engineSound", src:"/Assets/audio/engine.ogg"},
+        {id:"thunderSound", src:"/Assets/audio/thunder.ogg"},
+        {id:"yaySound", src:"/Assets/audio/yay.ogg"},
     ];
+
+    let player:objects.Player;
 
     function Init():void {
         assetManager = new createjs.LoadQueue();
@@ -23,6 +29,7 @@
         console.log(`%c Game Somewhat 3 Started`, "color:blue; font-size: 20px;");
         canvas = document.getElementsByTagName("canvas")[0];
         stage = new createjs.Stage(canvas);
+        managers.Game.stage = stage;
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60; // game will run at 60fps
         createjs.Ticker.on("tick", Update);
@@ -32,29 +39,13 @@
     // this is the game loop
     function Update():void {
 //        helloLabel.rotation -= 5;
+        player.Update();
         stage.update();
     }
 
     function Main():void {
-        helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
-        stage.addChild(helloLabel);
-
-        clickMeButton = new objects.Button("clickMeButton", 320, 360, true);
-        clickMeButton.scaleX = 0.2;
-        clickMeButton.scaleY = 0.2;
-        stage.addChild(clickMeButton);
-
-        clickMeButton.on("click", function() {
-            helloLabel.text = "Clicked!";
-        });
-
-        clickMeButton.on("mouseover", function(){
-            clickMeButton.alpha = 0.7;
-        });
-
-        clickMeButton.on("mouseout", function() {
-            clickMeButton.alpha = 1.0;
-        });
+        player = new objects.Player();
+        stage.addChild(player);
     }
 
     window.addEventListener("load", Init);

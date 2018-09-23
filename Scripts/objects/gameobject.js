@@ -1,19 +1,10 @@
 var objects;
 (function (objects) {
-    class Button extends createjs.Bitmap {
-        // constructor
-        constructor(imageString, x = 0, y = 0, isCenter = false) {
+    class GameObject extends createjs.Bitmap {
+        // constructors
+        constructor(imageString) {
             super(managers.Game.assetMnager.getResult(imageString));
-            this.Width = this.getBounds().width;
-            this.Height = this.getBounds().height;
-            if (isCenter) {
-                this.regX = this.HalfWidth;
-                this.regY = this.HalfHeight;
-            }
-            this.x = x;
-            this.y = y;
-            this.on("mouseover", this._over);
-            this.on("mouseout", this._out);
+            this._initialize();
         }
         // public properties
         get Width() {
@@ -43,13 +34,20 @@ var objects;
             this._halfHeight = newValue;
         }
         // private methods
-        _over(event) {
-            this.alpha = 0.7;
+        _initialize() {
+            this.Width = this.getBounds().width;
+            this.Height = this.getBounds().height;
         }
-        _out(event) {
-            this.alpha = 1.0;
+        // public methods
+        Reset() {
+        }
+        Start() {
+        }
+        Update() {
+        }
+        Destroy() {
         }
     }
-    objects.Button = Button;
+    objects.GameObject = GameObject;
 })(objects || (objects = {}));
-//# sourceMappingURL=button.js.map
+//# sourceMappingURL=gameobject.js.map
