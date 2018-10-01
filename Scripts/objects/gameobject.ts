@@ -54,20 +54,13 @@ module objects {
        }
 
        // public methods
-       public Reset():void {
+       public abstract Reset():void;
 
-       }
+       public abstract Start():void;
 
-       public Start():void {
-     
-       }
+       public abstract Update():void;
 
-       public Update():void {
-          
-       }
-
-       public Destroy():void {
-       }
+       public abstract Destroy():void;
     
           
     }

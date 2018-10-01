@@ -38,15 +38,6 @@ var objects;
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
         }
-        // public methods
-        Reset() {
-        }
-        Start() {
-        }
-        Update() {
-        }
-        Destroy() {
-        }
     }
     objects.GameObject = GameObject;
 })(objects || (objects = {}));

@@ -4,7 +4,10 @@
     let canvas;
     let stage;
     let assetManager;
+    let currentScene;
+    let currentState;
     let assetManifest = [
+        { id: "startButton", src: "/Assets/Images/startButton.png" },
         { id: "plane", src: "/Assets/Images/plane.png" },
         { id: "cloud", src: "/Assets/Images/cloud.png" },
         { id: "island", src: "/Assets/Images/island.png" },
@@ -13,7 +16,6 @@
         { id: "thunderSound", src: "/Assets/audio/thunder.ogg" },
         { id: "yaySound", src: "/Assets/audio/yay.ogg" },
     ];
-    let player;
     function Init() {
         assetManager = new createjs.LoadQueue();
         managers.Game.assetMnager = assetManager;
@@ -29,17 +31,33 @@
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60; // game will run at 60fps
         createjs.Ticker.on("tick", Update);
+        currentState = config.Scene.START;
+        managers.Game.currentState = currentState;
         Main();
     }
     // this is the game loop
     function Update() {
-        //        helloLabel.rotation -= 5;
-        player.Update();
+        currentScene.Update();
+        if (currentState != managers.Game.currentState) {
+            currentState = managers.Game.currentState;
+            Main();
+        }
         stage.update();
     }
     function Main() {
-        player = new objects.Player();
-        stage.addChild(player);
+        if (currentScene) {
+            currentScene.Destroy();
+            stage.removeAllChildren();
+        }
+        switch (currentState) {
+            case config.Scene.START:
+                currentScene = new scenes.Start();
+                break;
+            case config.Scene.PLAY:
+                currentScene = new scenes.Play();
+                break;
+        }
+        stage.addChild(currentScene);
     }
     window.addEventListener("load", Init);
 })();

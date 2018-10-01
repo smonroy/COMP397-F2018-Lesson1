@@ -25,5 +25,13 @@ module objects {
                 this.x = this.HalfWidth;
             }
         }
+
+        public Reset() {
+
+        }
+        
+        public Destroy() {
+
+        }
     }
 }

@@ -22,6 +22,10 @@ var objects;
                 this.x = this.HalfWidth;
             }
         }
+        Reset() {
+        }
+        Destroy() {
+        }
     }
     objects.Player = Player;
 })(objects || (objects = {}));
