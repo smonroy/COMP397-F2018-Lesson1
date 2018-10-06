@@ -7,14 +7,14 @@
     let currentScene;
     let currentState;
     let assetManifest = [
-        { id: "startButton", src: "/Assets/Images/startButton.png" },
-        { id: "plane", src: "/Assets/Images/plane.png" },
-        { id: "cloud", src: "/Assets/Images/cloud.png" },
-        { id: "island", src: "/Assets/Images/island.png" },
-        { id: "ocean", src: "/Assets/Images/ocean.gif" },
-        { id: "engineSound", src: "/Assets/audio/engine.ogg" },
-        { id: "thunderSound", src: "/Assets/audio/thunder.ogg" },
-        { id: "yaySound", src: "/Assets/audio/yay.ogg" },
+        { id: "startButton", src: "./Assets/Images/startButton.png" },
+        { id: "plane", src: "./Assets/Images/plane.png" },
+        { id: "cloud", src: "./Assets/Images/cloud.png" },
+        { id: "island", src: "./Assets/Images/island.png" },
+        { id: "ocean", src: "./Assets/Images/ocean.gif" },
+        { id: "engineSound", src: "./Assets/audio/engine.ogg" },
+        { id: "thunderSound", src: "./Assets/audio/thunder.ogg" },
+        { id: "yaySound", src: "./Assets/audio/yay.ogg" },
     ];
     function Init() {
         assetManager = new createjs.LoadQueue();
