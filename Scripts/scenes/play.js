@@ -18,8 +18,10 @@ var scenes;
             this._ocean.Update();
             this._player.Update();
             this._island.Update();
-            for (const cloud of this._clouds) {
+            managers.Collision.Check(this._player, this._island);
+            for (let cloud of this._clouds) {
                 cloud.Update();
+                managers.Collision.Check(this._player, cloud);
             }
         }
         ;
@@ -37,7 +39,7 @@ var scenes;
             this.addChild(this._island);
             this._player = new objects.Player();
             this.addChild(this._player);
-            for (const cloud of this._clouds) {
+            for (let cloud of this._clouds) {
                 this.addChild(cloud);
             }
         }

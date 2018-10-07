@@ -4,9 +4,16 @@ var objects;
         // constructors
         constructor(imageString) {
             super(managers.Game.assetMnager.getResult(imageString));
+            this.name = imageString;
             this._initialize();
         }
         // public properties
+        get IsColliding() {
+            return this._isColliding;
+        }
+        set IsColliding(value) {
+            this._isColliding = value;
+        }
         get Width() {
             return this._with;
         }
@@ -33,10 +40,21 @@ var objects;
         set HalfHeight(newValue) {
             this._halfHeight = newValue;
         }
+        get Position() {
+            return this._position;
+        }
+        set Position(vec) {
+            this._position = vec;
+        }
+        _updatePosition() {
+            this._position.x = this.x;
+            this._position.y = this.y;
+        }
         // private methods
         _initialize() {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
+            this.Position = new util.Vector2(this.x, this.y);
         }
     }
     objects.GameObject = GameObject;

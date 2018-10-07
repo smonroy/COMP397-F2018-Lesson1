@@ -9,6 +9,8 @@ module objects {
 
         constructor() {
             super("island");
+            this.regX = this.HalfWidth;
+            this.regY = this.HalfHeight;
 
             this.Start();
         }
@@ -29,6 +31,7 @@ module objects {
             this._verticalSpeed = 5;
             this.y = -this.Height;
             this.x = Math.floor((Math.random() * (640 - this.Width)) + this.HalfWidth);
+            this.IsColliding = false;
         }
 
         public Start():void {
@@ -38,6 +41,7 @@ module objects {
         public Update():void {
             this._move();
             this._checkBounds();
+            this._updatePosition();
         }
 
         public Destroy():void {

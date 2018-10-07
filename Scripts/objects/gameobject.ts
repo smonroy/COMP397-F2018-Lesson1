@@ -5,8 +5,18 @@ module objects {
         private _height:number;
         private _halfWidth:number;
         private _halfHeight:number;
+        private _position:util.Vector2;
+        private _isColliding:boolean;
 
         // public properties
+        get IsColliding():boolean {
+            return this._isColliding;
+        }
+
+        set IsColliding(value:boolean){
+            this._isColliding = value;
+        }
+
         get Width():number {
             return this._with;
         }
@@ -41,9 +51,25 @@ module objects {
             this._halfHeight = newValue;
         }
 
+        get Position():util.Vector2 {
+            return this._position;
+        }
+
+        set Position(vec:util.Vector2) {
+            this._position = vec;
+        }
+
+        protected _updatePosition():void {
+            this._position.x = this.x;
+            this._position.y = this.y;
+        }
+
+
+
         // constructors
         constructor(imageString:string) {
            super(managers.Game.assetMnager.getResult(imageString));
+           this.name = imageString;
            this._initialize();
         }
 
@@ -51,6 +77,7 @@ module objects {
        private _initialize():void {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
+            this.Position = new util.Vector2(this.x, this.y);
        }
 
        // public methods

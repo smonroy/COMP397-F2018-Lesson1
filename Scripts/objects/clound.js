@@ -5,6 +5,8 @@ var objects;
         // contructor
         constructor() {
             super("cloud");
+            this.regX = this.HalfWidth;
+            this.regY = this.HalfHeight;
             this.Start();
         }
         // private methods
@@ -23,6 +25,7 @@ var objects;
             this._horizontalSpeed = Math.floor((Math.random() * 4) - 2);
             this.y = -this.Height;
             this.x = Math.floor((Math.random() * (640 - this.Width)) + this.HalfWidth);
+            this.IsColliding = false;
         }
         Start() {
             this.Reset();
@@ -30,6 +33,7 @@ var objects;
         Update() {
             this._move();
             this._checkBounds();
+            this._updatePosition();
         }
         Destroy() {
         }

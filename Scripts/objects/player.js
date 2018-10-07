@@ -21,6 +21,7 @@ var objects;
             if (this.x < this.HalfWidth) {
                 this.x = this.HalfWidth;
             }
+            this._updatePosition();
         }
         Reset() {
         }

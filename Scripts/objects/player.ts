@@ -8,6 +8,7 @@ module objects {
         }
 
         // private methods
+        
 
         // public methods
         public Start():void {
@@ -24,6 +25,7 @@ module objects {
             if(this.x < this.HalfWidth) {
                 this.x = this.HalfWidth;
             }
+            this._updatePosition();
         }
 
         public Reset() {
