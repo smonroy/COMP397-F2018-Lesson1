@@ -18,8 +18,8 @@ module managers {
                         managers.Game.scoreboard.Lives -= 1;
                         if(managers.Game.scoreboard.Lives <= 0) {
                             managers.Game.currentState = config.Scene.OVER;
-                            if(managers.Game.highScore <= managers.Game.scoreboard.Score) {
-                                managers.Game.highScore = managers.Game.scoreboard.Score;
+                            if(managers.Game.scoreboard.HighScore <= managers.Game.scoreboard.Score) {
+                                managers.Game.scoreboard.HighScore = managers.Game.scoreboard.Score;
                             }
                         }
                         break;

@@ -7,6 +7,7 @@
 
     let currentScene:objects.Scene;
     let currentState:config.Scene;
+    let scoreBoard:managers.ScoreBoard;
 
     let assetManifest = [
         {id:"startButton", src:"./Assets/Images/startButton.png"},
@@ -40,7 +41,9 @@
 
         currentState = config.Scene.START;
         managers.Game.currentState = currentState;
-
+        
+        scoreBoard = new managers.ScoreBoard();
+        managers.Game.scoreboard = scoreBoard;
         Main();
     }
 

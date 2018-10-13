@@ -11,7 +11,6 @@ var scenes;
             this.Start();
         }
         Start() {
-            managers.Game.currentScene = this;
             this.Main();
         }
         ;
@@ -47,8 +46,7 @@ var scenes;
             this._engineSound = createjs.Sound.play("engineSound");
             this._engineSound.volume = 0.1;
             this._engineSound.loop = 1;
-            this._scoreBoard = new managers.ScoreBoard();
-            managers.Game.scoreboard = this._scoreBoard;
+            managers.Game.scoreboard.AddGameUI(this);
         }
         ;
     }

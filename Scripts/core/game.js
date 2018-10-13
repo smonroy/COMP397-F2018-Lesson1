@@ -6,6 +6,7 @@
     let assetManager;
     let currentScene;
     let currentState;
+    let scoreBoard;
     let assetManifest = [
         { id: "startButton", src: "./Assets/Images/startButton.png" },
         { id: "restartButton", src: "./Assets/Images/startButton.png" },
@@ -34,6 +35,8 @@
         createjs.Ticker.on("tick", Update);
         currentState = config.Scene.START;
         managers.Game.currentState = currentState;
+        scoreBoard = new managers.ScoreBoard();
+        managers.Game.scoreboard = scoreBoard;
         Main();
     }
     // this is the game loop
