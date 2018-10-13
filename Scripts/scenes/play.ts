@@ -7,6 +7,8 @@ module scenes {
 
         private _clouds:objects.Clound[];
         private _cloudNum:number;
+        private _engineSound:createjs.AbstractSoundInstance;
+        private _scoreBoard:managers.ScoreBoard;
 
         constructor() {
             super();
@@ -22,6 +24,8 @@ module scenes {
         }
 
         public Start():void {
+            managers.Game.currentScene = this;
+            
             this.Main();
         };
 
@@ -60,6 +64,11 @@ module scenes {
             for (let cloud of this._clouds) {
                 this.addChild(cloud); 
             }  
+            this._engineSound = createjs.Sound.play("engineSound");
+            this._engineSound.volume = 0.1;
+            this._engineSound.loop = 1;
+
+            this._scoreBoard = new managers.ScoreBoard();
         };
     }
 }

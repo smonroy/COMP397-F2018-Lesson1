@@ -8,10 +8,12 @@ module managers {
 
                     switch(object2.name) {
                         case "island":
-                        createjs.Sound.play("yaySound");
+                        let yaySound = createjs.Sound.play("yaySound");
+                        yaySound.volume = 0.1;
                         break
                         case "cloud":
-                        createjs.Sound.play("thunderSound");
+                        let thunderSound = createjs.Sound.play("thunderSound");
+                        thunderSound.volume = 0.1;
                         break;
                     }
                 }

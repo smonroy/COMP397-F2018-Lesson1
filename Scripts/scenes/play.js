@@ -11,6 +11,7 @@ var scenes;
             this.Start();
         }
         Start() {
+            managers.Game.currentScene = this;
             this.Main();
         }
         ;
@@ -42,6 +43,10 @@ var scenes;
             for (let cloud of this._clouds) {
                 this.addChild(cloud);
             }
+            this._engineSound = createjs.Sound.play("engineSound");
+            this._engineSound.volume = 0.1;
+            this._engineSound.loop = 1;
+            this._scoreBoard = new managers.ScoreBoard();
         }
         ;
     }
