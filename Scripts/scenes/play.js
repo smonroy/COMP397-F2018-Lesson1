@@ -28,6 +28,7 @@ var scenes;
         ;
         Destroy() {
             this.removeAllChildren();
+            this._engineSound.stop();
         }
         ;
         Reset() {
@@ -47,6 +48,7 @@ var scenes;
             this._engineSound.volume = 0.1;
             this._engineSound.loop = 1;
             this._scoreBoard = new managers.ScoreBoard();
+            managers.Game.scoreboard = this._scoreBoard;
         }
         ;
     }

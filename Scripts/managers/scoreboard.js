@@ -42,7 +42,7 @@ var managers;
                 this._livesLabel = new objects.Label("Lives: 99", "30px", "Consolas", "#FFFF00", 20, 10, false);
             }
             else {
-                this._highScoreLabel = new objects.Label("High Score: 999999", "30px", "Consolas", "#FFFF00", 320, 240, false);
+                this._highScoreLabel = new objects.Label("High Score: 999999", "60px", "Consolas", "#FFFF00", 320, 140, true);
             }
             this.Main();
         }

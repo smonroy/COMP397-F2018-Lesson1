@@ -8,6 +8,7 @@
     let currentState;
     let assetManifest = [
         { id: "startButton", src: "./Assets/Images/startButton.png" },
+        { id: "restartButton", src: "./Assets/Images/startButton.png" },
         { id: "plane", src: "./Assets/Images/plane.png" },
         { id: "cloud", src: "./Assets/Images/cloud.png" },
         { id: "island", src: "./Assets/Images/island.png" },
@@ -55,6 +56,9 @@
                 break;
             case config.Scene.PLAY:
                 currentScene = new scenes.Play();
+                break;
+            case config.Scene.OVER:
+                currentScene = new scenes.Over();
                 break;
         }
         stage.addChild(currentScene);

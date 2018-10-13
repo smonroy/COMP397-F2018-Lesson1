@@ -10,10 +10,18 @@ module managers {
                         case "island":
                         let yaySound = createjs.Sound.play("yaySound");
                         yaySound.volume = 0.1;
+                        managers.Game.scoreboard.Score += 100;
                         break
                         case "cloud":
                         let thunderSound = createjs.Sound.play("thunderSound");
                         thunderSound.volume = 0.1;
+                        managers.Game.scoreboard.Lives -= 1;
+                        if(managers.Game.scoreboard.Lives <= 0) {
+                            managers.Game.currentState = config.Scene.OVER;
+                            if(managers.Game.highScore <= managers.Game.scoreboard.Score) {
+                                managers.Game.highScore = managers.Game.scoreboard.Score;
+                            }
+                        }
                         break;
                     }
                 }

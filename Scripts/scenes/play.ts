@@ -25,7 +25,7 @@ module scenes {
 
         public Start():void {
             managers.Game.currentScene = this;
-            
+
             this.Main();
         };
 
@@ -45,6 +45,7 @@ module scenes {
 
         public Destroy():void {
             this.removeAllChildren();
+            this._engineSound.stop();
         };
 
         public Reset():void {
@@ -69,6 +70,7 @@ module scenes {
             this._engineSound.loop = 1;
 
             this._scoreBoard = new managers.ScoreBoard();
+            managers.Game.scoreboard = this._scoreBoard;
         };
     }
 }
